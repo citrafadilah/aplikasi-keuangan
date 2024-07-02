@@ -29,9 +29,9 @@ class PemasukanController extends Controller
             'keterangan' => 'nullable|string',
         ]);
 
-        $pemasukan = Pemasukan::create($request->all());
+        $pemasukan = Riwayat::create($request->all());
 
-        return view('pemasukan.index', compact('pemasukan'));
+        return redirect()->route('pemasukan.index');
     }
 
     public function show($id)
@@ -42,14 +42,14 @@ class PemasukanController extends Controller
 
     public function edit($id)
     {
-        $pemasukan = Pemasukan::findOrFail($id);
+        $pemasukan = Riwayat::findOrFail($id);
         return view('pemasukan.edit', compact('pemasukan'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'sumber_pemasukan' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:255',
             'jumlah' => 'required|numeric',
             'tanggal' => 'required|date',
             'keterangan' => 'nullable|string',
@@ -58,7 +58,7 @@ class PemasukanController extends Controller
         $pemasukan = Riwayat::where('jenis_transaksi', 'pemasukan')->findOrFail($id);
         $pemasukan->update($request->all());
 
-        return response()->json($pemasukan);
+        return redirect()->route('pemasukan.index');
     }
 
     public function destroy($id)

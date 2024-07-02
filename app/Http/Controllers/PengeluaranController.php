@@ -28,29 +28,30 @@ class PengeluaranController extends Controller
             'keterangan' => 'nullable|string',
         ]);
 
-        $pengeluaran = Pengeluaran::create($request->all());
+        $pengeluaran = Riwayat::create($request->all());
 
-        return view('pengeluaran.index', compact('pengeluaran'));
+        return redirect()->route('pengeluaran.index')->with('success', 'Pengeluaran berhasil ditambahkan');
     }
 
-    public function edit(Pengeluaran $pengeluaran)
+    public function edit($id)
     {
-        $pengeluaran = Pengeluaran::findOrFail($pengeluaran);
+        $pengeluaran = Riwayat::findOrFail($id);
         return view('pengeluaran.edit', compact('pengeluaran'));
     }
 
-    public function update(Request $request, Pengeluaran $pengeluaran)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'jenis_pengeluaran' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:255',
             'jumlah' => 'required|numeric',
             'tanggal' => 'required|date',
             'keterangan' => 'nullable|string',
         ]);
 
+        $pengeluaran = Riwayat::where('jenis_transaksi', 'pengeluaran')->findOrFail($id);
         $pengeluaran->update($request->all());
-
-        return view('pengeluaran.index', compact('pengeluaran'));
+        
+        return redirect()->route('pengeluaran.index')->with('success', 'Pengeluaran berhasil diubah');
     }
 
     public function destroy(Pengeluaran $pengeluaran)

@@ -11,12 +11,12 @@
                     <div class="card-body">
                         <form action="{{ route('pemasukan.store') }}" method="POST">
                             @csrf
-
+                            <input type="text" name="jenis_transaksi" id="jenis_transaksi" value="pemasukan" hidden>
                             <div class="form-group">
                                 <label for="tanggal">Sumber Pemasukan:</label>
-                                <input type="text" name="sumber_pemasukan" id="sumber_pemasukan" class="form-control">
+                                <input type="text" name="deskripsi" id="deskripsi" class="form-control">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="jumlah">Jumlah:</label>
                                 <input type="number" name="jumlah" id="jumlah" class="form-control">

@@ -11,9 +11,10 @@
                     <div class="card-body">
                         <form action="{{ route('pengeluaran.store') }}" method="POST">
                             @csrf
+                            <input type="text" name="jenis_transaksi" id="jenis_transaksi" value="pengeluaran" hidden>
                             <div class="form-group">
-                                <label for="nama">Jenis Pengeluaran</label>
-                                <input type="text" name="nama" id="nama" class="form-control" required>
+                                <label for="deskripsi">Jenis Pengeluaran</label>
+                                <input type="text" name="deskripsi" id="deskripsi" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="jumlah">Jumlah</label>

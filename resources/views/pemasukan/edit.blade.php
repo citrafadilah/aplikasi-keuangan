@@ -9,7 +9,7 @@
 
             <div class="form-group">
                 <label for="sumber">Sumber Pemasukan</label>
-                <input type="text" class="form-control" id="sumber" name="sumber" value="{{ $pemasukan->sumber_pemasukan }}">
+                <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $pemasukan->deskripsi }}">
             </div>
 
             <div class="form-group">

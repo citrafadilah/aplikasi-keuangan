@@ -9,12 +9,17 @@
 
             <div class="form-group">
                 <label for="jenis_pengeluaran">Jenis Pengeluaran</label>
-                <input type="text" class="form-control" id="jenis_pengeluaran" name="jenis_pengeluaran" value="{{ $pengeluaran->jenis_pengeluaran }}">
+                <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $pengeluaran->deskripsi }}">
             </div>
 
             <div class="form-group">
                 <label for="tanggal">Tanggal</label>
                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ $pengeluaran->tanggal }}">
+            </div>
+
+            <div class="form-group">
+                <label for="jumlah">Jumlah</label>
+                <input type="number" class="form-control" id="jumlah" name="jumlah" value="{{ $pengeluaran->jumlah }}">
             </div>
 
             <div class="form-group">
