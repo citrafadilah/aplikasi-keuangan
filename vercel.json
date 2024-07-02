@@ -10,8 +10,8 @@
             "dest": "/public/build/"
         },
         {
-            "src": "/assets/(.*)",
-            "dest": "/public/AdminLTE/plugins"
+            "src": "/AdminLTE/(.*)",
+            "dest": "/public/AdminLTE/plugins/"
         },
         {
             "src": "/css/(.*)",
